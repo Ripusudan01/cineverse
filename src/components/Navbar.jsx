@@ -4,7 +4,7 @@ function Navbar({ searchQuery, setSearchQuery }) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top px-3">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand fw-bold fs-4">
           CineVerse
         </Link>
 
