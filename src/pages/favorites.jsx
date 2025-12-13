@@ -1,13 +1,21 @@
 import { useMovieContext } from "../contexts/MovieContexts";
 import MovieCard from "../components/MovieCard";
 
-function Favourite() {
+function Favourite({ searchQuery }) {
   const { favorites } = useMovieContext();
 
-  if (favorites.length === 0) {
+  const filteredFavorites = favorites.filter(movie =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  if (filteredFavorites.length === 0) {
     return (
       <div className="text-center text-light mt-5">
-        <h2>No Favourite Movies Yet ❤️</h2>
+        <h2>
+          {searchQuery
+            ? `No favourites found for "${searchQuery}"`
+            : "No Favourite Movies Yet ❤️"}
+        </h2>
       </div>
     );
   }
@@ -15,7 +23,7 @@ function Favourite() {
   return (
     <div className="container mt-5 pt-4">
       <div className="row g-4 justify-content-center">
-        {favorites.map((movie) => (
+        {filteredFavorites.map(movie => (
           <div key={movie.id} className="col-auto">
             <MovieCard movie={movie} />
           </div>

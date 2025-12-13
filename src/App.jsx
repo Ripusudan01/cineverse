@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home searchQuery={searchQuery} />} />
-          <Route path="/favourite" element={<Favourite />} />
+          <Route path="/favourite" element={<Favourite searchQuery={searchQuery}/>} />
         </Routes>
       </main>
     </MovieProvider>
