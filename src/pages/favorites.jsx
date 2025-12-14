@@ -11,11 +11,11 @@ function Favourite({ searchQuery }) {
   if (filteredFavorites.length === 0) {
     return (
       <div className="text-center text-light mt-5">
-        <h2>
+        <h3>
           {searchQuery
             ? `No favourites found for "${searchQuery}"`
             : "No Favourite Movies Yet ❤️"}
-        </h2>
+        </h3>
       </div>
     );
   }

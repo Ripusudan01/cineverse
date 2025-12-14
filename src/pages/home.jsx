@@ -32,31 +32,35 @@ function Home({ searchQuery }) {
     fetchMovies();
   }, [API_KEY]);
 
-  const filteredMovies = movies.filter((movie) =>
+  const filteredMovies = movies.filter(movie =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  if (loading) {
+    return (
+      <div className="text-center text-light mt-5">
+        <h3>Loading movies...</h3>
+      </div>
+    );
+  }
+
+  if (filteredMovies.length === 0) {
+    return (
+      <div className="text-center text-light mt-5">
+        <h3>No movies found for "{searchQuery}"</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="container mt-5 pt-4">
-
-      {loading && (
-        <h4 className="text-center text-light">Loading movies...</h4>
-      )}
-
-      {!loading && filteredMovies.length === 0 && (
-        <h4 className="text-center text-light mt-5">
-          No movies found for "{searchQuery}"
-        </h4>
-      )}
-
       <div className="row g-4 justify-content-center">
-        {filteredMovies.map((movie) => (
+        {filteredMovies.map(movie => (
           <div key={movie.id} className="col-auto">
             <MovieCard movie={movie} />
           </div>
         ))}
       </div>
-
     </div>
   );
 }
