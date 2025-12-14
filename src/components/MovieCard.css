@@ -1,18 +1,18 @@
 .movie-card {
-  background: #121212;
+  background: #101826;
   border-radius: 18px;
   overflow: hidden;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-
+  border: 1px solid rgba(255, 255, 255, 0.04);
   width: 260px;
   flex-shrink: 0;
 }
 
 .movie-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 30px rgba(10, 30, 60, 0.8);
 }
 
 .movie-poster {
